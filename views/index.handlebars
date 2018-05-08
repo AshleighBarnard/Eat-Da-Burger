@@ -1,56 +1,43 @@
 <h1>Eat-Da-Burger!</h1>
 
-<div id="container">
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        {{#each burgers}}
+          {{#unless this.devoured}}
+            <div>
+              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
 
-	<div id="addburger">
-		<div id="burger">
-			<img src="/assets/images/cropped-burger.png" align="middle">
-		</div>
+      <div class="col s6">
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class='burgerEaten'>
+              <div>
+                {{this.burger_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
 
-		<form class="addburger" method="POST">
-			<label for="newburger">Add delicious burger:</label><br>
-			<input type="text" id="newburger" name="name">
-			<button type="submit">Submit</button>
-		</form>
-	</div>
+<h2>Add A Burger Option</h2>
 
-	<div id="burgerholder">
-	<h3>Your Burgers</h3>
-		{{#each burgers}}
-			{{#unless devoured}}
-			<ul>
-				<li>
-					{{this.burger_name}}
-					<form action="/{{this.id}}?_method=PUT" method="POST">
-					<input type="hidden" name="boolean" value="true">
-					<br><button type="button" class="predevour" id="devour{{this.id}}">Tell me who you are</button>
-					<input type="text" name="customer" class="customer" id="customer{{this.id}}" placeholder="Customer name">
-					</form>
-				</li>
-			</ul>
-			{{/unless}}
-		{{/each}}
-	</div>
-
-	<div id="burgergone">
-	<h3>Devoured Burgers</h3>
-		{{#each burgers}}
-			{{#if this.devoured}}
-			<ul>
-				<li>
-					{{this.burger_name}} (Devoured by {{this.customer.name}})
-					<br><form action="/{{this.id}}?_method=PUT" method="POST">
-					<input type="hidden" name="boolean" value="false">
-					<button type="submit">Have it again</button>
-					</form>
-					<form action="/{{this.id}}?_method=DELETE" method="POST">
-					<button type="submit">No, drop this burger</button>
-					</form>
-				</li>
-			</ul>
-			{{/if}}
-		{{/each}}
-	</div>
+<div class="row">
+  <div class="col s12">
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="Uber Delicious Burger">
+      <button type="submit" class="addBurgerButton">Add Burger</button>
+    </form>
+  </div>
 </div>
-
 <footer>© Copyright 2018 Ashleigh Barnard</footer>
