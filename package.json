@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "npm start",
-    "start": "node server.js"
+    "start": "node server.js",
+    "engines": {
+      "npm": "5.7.1"
+    }
   },
   "repository": {
     "type": "git",
