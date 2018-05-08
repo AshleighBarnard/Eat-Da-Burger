@@ -1,3 +1,4 @@
+
 // Import the burger model to gain access to the database functions
 var burger = require('./burger.js');
 

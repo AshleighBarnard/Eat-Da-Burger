@@ -5,7 +5,8 @@
 }
 
 body {
-	background-image: url("../images/ep_naturalwhite.png");
+	background-image: url("../img/background.png");
+	background-attachment: center;
 }
 
 h1 {
@@ -20,16 +21,19 @@ h1 {
 #container {
 	margin: 20px;
 	padding: 20px;
-	width: 75%;
 	margin: auto;
 	background-color: #fff;
 	box-shadow: 0 0 10px #aaa;
 	min-height: 1000px;
-	margin-bottom: 150px;
+}
+
+#cute_burger {
+	display: block;
+	margin: auto;
 }
 
 #burger img {
-	height: 100px;
+	height: 20px;
 	margin-right: 30px;
 }
 
@@ -42,6 +46,9 @@ h1 {
 	margin: 0 20px 20px 20px;
 }
 
+.addBurgerButton {
+	align-content: center;
+}
 #newburger {
 	padding: 3px;
 	min-width: 200px;
@@ -97,7 +104,7 @@ form {
 	display: inline;
 }
 
-footer {
+/*footer {
 	position: fixed;
 	bottom: 0;
 	left: 0;
@@ -110,7 +117,7 @@ footer {
 	border-top: 8px solid #4aaaa5;
 	opacity: 0.7;
 	z-index: 5;
-}
+}*/
 
 @media only screen and (max-width: 980px) {
 	#burgerholder {
