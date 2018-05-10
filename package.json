@@ -19,7 +19,6 @@
     "express",
     "handlebars",
     "mysql"
-    
   ],
   "author": "Ashleigh Barnard",
   "license": "ISC",
